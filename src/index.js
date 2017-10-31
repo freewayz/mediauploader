@@ -56,8 +56,8 @@ FSMediaUploader.prototype = {
 
     processUpload: function (event) {
         event.preventDefault();
-        const uploadedInputFiles = this.els.querySelector('#fileUpload');
-        const files = uploadedInputFiles.files;
+        var uploadedInputFiles = this.els.querySelector('#fileUpload');
+        var files = uploadedInputFiles.files;
         var errorLog = document.getElementById('uploadError');
         var progressBar = document.getElementById('progressBar');
         var count = 0;
@@ -71,7 +71,7 @@ FSMediaUploader.prototype = {
                 progressBar.style.width =  `${calculatePercentage(max, totalImages)}%`;
                 showDoneUploading(progressBar);
             }).catch(function (error) {
-                const err = document.createElement('div');
+                var err = document.createElement('div');
                 err.innerHTML = uploadError(files[f], error.statusMsg)
                 errorLog.appendChild(err);
             });
